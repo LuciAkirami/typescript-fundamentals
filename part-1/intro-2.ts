@@ -56,18 +56,6 @@ function returnObject(): {name: string} {
     return {name: "henlo"}
 }
 
-// ------ typescript weird behaviour ------
-
-function createSomething({name: string}) {
-    console.log("heyy")
-}
-
-createSomething({name: "yooo"})
-
-// here it's weird
-let names = {name: "yoo", id: 5}
-createSomething(names) // here its not catching the error
-
 // ---- unions in functions -----
 function getId(id: number | string) {
     if( typeof id === "string") {
