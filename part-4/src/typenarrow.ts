@@ -56,3 +56,29 @@ function logValue(x: Date | string) {
         console.log(x.toLowerCase());
     }
 }
+
+// --- never type for exahustive checking -----
+
+interface Circle {
+    kind: "circle"
+}
+
+interface Square {
+    kind: "square"
+}
+
+type Shape = Circle | Square
+
+// if we forgot to include anything in the switch, the default case will
+// give us an error and never cannot be assigned anything
+function getShape(shape: Shape) {
+    switch (shape.kind) {
+        case "circle":
+            return "its circle"
+        case "square":
+            return "its square"
+        default:
+            const _exhaustiveCheck: never = shape;
+            return _exhaustiveCheck
+    }
+}

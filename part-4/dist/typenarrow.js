@@ -41,3 +41,16 @@ function logValue(x) {
         console.log(x.toLowerCase());
     }
 }
+// if we forgot to include anything in the switch, the default case will
+// give us an error and never cannot be assigned anything
+function getShape(shape) {
+    switch (shape.kind) {
+        case "circle":
+            return "its circle";
+        case "square":
+            return "its square";
+        default:
+            const _exhaustiveCheck = shape;
+            return _exhaustiveCheck;
+    }
+}
